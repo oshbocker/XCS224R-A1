@@ -18,7 +18,7 @@ MJ_ENV_KWARGS["Ant-v4"]["use_contact_forces"] = True
 
 def sample_trajectory(env, policy, max_path_length, render=False):
     """
-    Rolls out a policy and generates a trajectories
+    Rolls out a policy and generates trajectories
 
     :param policy: the policy to roll out
     :param max_path_length: the number of steps to roll out
@@ -26,9 +26,10 @@ def sample_trajectory(env, policy, max_path_length, render=False):
     """
     # Initialize environment for the beginning of a new rollout
 
-    ob, info = None, None  # HINT: should be the output of resetting the env
+    ob, _info = None, None  # HINT: should be the output of resetting the env
 
     # *** START CODE HERE ***
+    ob, _info = env.reset()
     # *** END CODE HERE ***
 
     # Initialize data storage for across the trajectory
@@ -49,8 +50,9 @@ def sample_trajectory(env, policy, max_path_length, render=False):
 
         # Use the most recent observation to decide what to do
         obs.append(ob)
-        ac = None # HINT: Query the policy's get_action functio
+        ac = None # HINT: Query the policy's get_action function
         # *** START CODE HERE ***
+        ac = policy.get_action(ob)
         # *** END CODE HERE ***
         ac = ac[0]
         acs.append(ac)
@@ -68,6 +70,7 @@ def sample_trajectory(env, policy, max_path_length, render=False):
 
         rollout_done =  None # HINT: this is either 0 or 1
         # *** START CODE HERE ***
+        rollout_done = done if steps < max_path_length else 1
         # *** END CODE HERE ***
         
         terminals.append(rollout_done)
@@ -88,10 +91,10 @@ def sample_trajectories(env, policy, min_timesteps_per_batch, max_path_length, r
     timesteps_this_batch = 0
     paths = []
     while timesteps_this_batch < min_timesteps_per_batch:
-
-        pass
-
         # *** START CODE HERE ***
+        path = sample_trajectory(env, policy, max_path_length, render)
+        paths.append(path)
+        timesteps_this_batch += get_pathlength(path)
         # *** END CODE HERE ***
 
     return paths, timesteps_this_batch

@@ -83,6 +83,17 @@ def build_mlp(
     mlp = None
 
     # *** START CODE HERE ***
+    input_layer = nn.Linear(input_size, size)
+    modules = []
+    modules.append(input_layer)
+    modules.append(activation)
+    for i in range(n_layers - 1):
+        modules.append(nn.Linear(size, size))
+        modules.append(activation)
+    output_layer = nn.Linear(size, output_size)
+    modules.append(output_layer)
+    modules.append(output_activation)
+    mlp = nn.Sequential(*modules)
     # *** END CODE HERE ***
 
     return mlp

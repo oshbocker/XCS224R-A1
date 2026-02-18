@@ -133,7 +133,7 @@ class ReplayBuffer():
 
     def sample_recent_data(self, batch_size=1):
         """
-        Samples a batch of the most recent transitions transitions
+        Samples a batch of the most recent transitions
 
         :param batch_size: the number of transitions to sample
         :return:

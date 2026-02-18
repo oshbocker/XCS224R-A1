@@ -210,6 +210,8 @@ class BCTrainer:
         print("\nCollecting data to be used for training...")
 
         # *** START CODE HERE ***
+        if itr == 0:
+            print("starting hw1")
         # *** END CODE HERE ***
 
         # collect more rollouts with the same policy, to be saved as videos in tensorboard
@@ -237,6 +239,7 @@ class BCTrainer:
             ob_batch, ac_batch, re_batch, next_ob_batch, terminal_batch = None, None, None, None, None
 
             # *** START CODE HERE ***
+
             # *** END CODE HERE ***
 
             # TODO use the sampled data to train an agent
