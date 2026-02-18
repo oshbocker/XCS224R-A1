@@ -211,7 +211,11 @@ class BCTrainer:
 
         # *** START CODE HERE ***
         if itr == 0:
-            print("starting hw1")
+            with open(load_initial_expertdata, 'rb') as f:
+                paths = pickle.load(f)
+            return paths, 0, None
+        
+        paths, envsteps_this_batch = utils.sample_trajectories(self.env, collect_policy, self.params['ep_len'])
         # *** END CODE HERE ***
 
         # collect more rollouts with the same policy, to be saved as videos in tensorboard
@@ -236,19 +240,17 @@ class BCTrainer:
             # HINT1: use the agent's sample function
             # HINT2: how much data = self.params['train_batch_size']
 
-            ob_batch, ac_batch, re_batch, next_ob_batch, terminal_batch = None, None, None, None, None
-
             # *** START CODE HERE ***
-
+            ob_batch, ac_batch, re_batch, next_ob_batch, terminal_batch = self.agent.sample(self.params['train_batch_size'])
             # *** END CODE HERE ***
 
             # TODO use the sampled data to train an agent
             # HINT: use the agent's train function
             # HINT: keep the agent's training log for debugging
 
-            train_log = None
-
             # *** START CODE HERE ***
+            train_log = self.agent.train(ob_batch, ac_batch)
+            all_logs.append(train_log)
             # *** END CODE HERE ***
         return all_logs
 
@@ -267,6 +269,8 @@ class BCTrainer:
         # and replace paths[i]["action"] with these expert labels
 
         # *** START CODE HERE ***
+        for i in range(len(paths)):
+            paths[i]["action"] = expert_policy.get_action(paths[i]["observation"])
         # *** END CODE HERE ***
 
         return paths

@@ -109,6 +109,11 @@ def sample_n_trajectories(env, policy, ntraj, max_path_length, render=False):
     paths = []
 
     # *** START CODE HERE ***
+    for i in range(ntraj):
+        path = sample_trajectory(env, policy, max_path_length, render)
+        paths.append(path)
+    
+    return paths
     # *** END CODE HERE ***
 
 ############################################

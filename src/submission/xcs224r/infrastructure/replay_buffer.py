@@ -29,7 +29,7 @@ class ReplayBuffer():
     Methods
     -------
     add_rollouts:
-        Add rollouts and processes them into their separate components
+        Adds rollouts and processes them into their separate components
     sample_random_data:
         Selects a random batch of data
     sample_recent_data:
@@ -129,6 +129,15 @@ class ReplayBuffer():
         ## Note that rews, next_obs, and terminals are not used for BC
 
         # *** START CODE HERE ***
+        num_transitions = len(self)
+        rnd_idx = np.random.permutation(num_transitions)[-batch_size:]
+        return (
+            self.obs[rnd_idx],
+            self.acs[rnd_idx],
+            self.rews[rnd_idx],
+            self.next_obs[rnd_idx],
+            self.terminals[rnd_idx],
+        )
         # *** END CODE HERE ***
 
     def sample_recent_data(self, batch_size=1):
