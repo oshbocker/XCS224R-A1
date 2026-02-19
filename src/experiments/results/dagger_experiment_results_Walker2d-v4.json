@@ -1,0 +1,74 @@
+{
+  "experiment": "DAgger learning curve",
+  "env": "Walker2d-v4",
+  "n_iter": 10,
+  "fixed_params": {
+    "ep_len": 1000,
+    "eval_batch_size": 5000,
+    "batch_size": 1000,
+    "num_agent_train_steps_per_iter": 1000,
+    "n_layers": 2,
+    "size": 64,
+    "learning_rate": 0.005,
+    "seed": 1
+  },
+  "dagger": {
+    "iterations_data": [
+      {
+        "iteration": 0,
+        "eval_average_return": 295.0140380859375,
+        "eval_std_return": 341.20623779296875
+      },
+      {
+        "iteration": 1,
+        "eval_average_return": 3879.6328125,
+        "eval_std_return": 1499.977783203125
+      },
+      {
+        "iteration": 2,
+        "eval_average_return": 4359.3779296875,
+        "eval_std_return": 1426.947265625
+      },
+      {
+        "iteration": 3,
+        "eval_average_return": 4235.17431640625,
+        "eval_std_return": 1571.8709716796875
+      },
+      {
+        "iteration": 4,
+        "eval_average_return": 4279.74365234375,
+        "eval_std_return": 1608.0750732421875
+      },
+      {
+        "iteration": 5,
+        "eval_average_return": 4650.94775390625,
+        "eval_std_return": 1512.5157470703125
+      },
+      {
+        "iteration": 6,
+        "eval_average_return": 5406.140625,
+        "eval_std_return": 18.286630630493164
+      },
+      {
+        "iteration": 7,
+        "eval_average_return": 5392.7119140625,
+        "eval_std_return": 69.1363296508789
+      },
+      {
+        "iteration": 8,
+        "eval_average_return": 5413.447265625,
+        "eval_std_return": 49.971858978271484
+      },
+      {
+        "iteration": 9,
+        "eval_average_return": 5310.3876953125,
+        "eval_std_return": 76.1435317993164
+      }
+    ],
+    "expert_return": 5566.845703125
+  },
+  "bc": {
+    "eval_average_return": 295.0140380859375,
+    "eval_std_return": 341.20623779296875
+  }
+}

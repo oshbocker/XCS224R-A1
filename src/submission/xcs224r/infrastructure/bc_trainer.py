@@ -215,7 +215,11 @@ class BCTrainer:
                 paths = pickle.load(f)
             return paths, 0, None
         
-        paths, envsteps_this_batch = utils.sample_trajectories(self.env, collect_policy, self.params['ep_len'])
+        paths, envsteps_this_batch = utils.sample_trajectories(
+            self.env,
+            collect_policy,
+            self.params['batch_size'], 
+            self.params['ep_len'])
         # *** END CODE HERE ***
 
         # collect more rollouts with the same policy, to be saved as videos in tensorboard

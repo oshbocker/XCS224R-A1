@@ -1,0 +1,48 @@
+{
+  "experiment": "BC num_agent_train_steps_per_iter study",
+  "env": "Walker2d-v4",
+  "fixed_params": {
+    "n_iter": 1,
+    "ep_len": 1000,
+    "eval_batch_size": 5000,
+    "seed": 1
+  },
+  "data": [
+    {
+      "num_train_steps": 100,
+      "eval_average_return": 203.10951232910156
+    },
+    {
+      "num_train_steps": 500,
+      "eval_average_return": 366.3776550292969
+    },
+    {
+      "num_train_steps": 1000,
+      "eval_average_return": 295.0140380859375
+    },
+    {
+      "num_train_steps": 1500,
+      "eval_average_return": 528.2135009765625
+    },
+    {
+      "num_train_steps": 2000,
+      "eval_average_return": 825.3292236328125
+    },
+    {
+      "num_train_steps": 3000,
+      "eval_average_return": 3955.70654296875
+    },
+    {
+      "num_train_steps": 4000,
+      "eval_average_return": 1897.8065185546875
+    },
+    {
+      "num_train_steps": 5000,
+      "eval_average_return": 3225.51318359375
+    },
+    {
+      "num_train_steps": 6000,
+      "eval_average_return": 4894.8603515625
+    }
+  ]
+}

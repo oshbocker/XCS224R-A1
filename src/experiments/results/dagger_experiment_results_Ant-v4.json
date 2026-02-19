@@ -1,0 +1,74 @@
+{
+  "experiment": "DAgger learning curve",
+  "env": "Ant-v4",
+  "n_iter": 10,
+  "fixed_params": {
+    "ep_len": 1000,
+    "eval_batch_size": 5000,
+    "batch_size": 1000,
+    "num_agent_train_steps_per_iter": 1000,
+    "n_layers": 2,
+    "size": 64,
+    "learning_rate": 0.005,
+    "seed": 1
+  },
+  "dagger": {
+    "iterations_data": [
+      {
+        "iteration": 0,
+        "eval_average_return": 1551.480712890625,
+        "eval_std_return": 993.0275268554688
+      },
+      {
+        "iteration": 1,
+        "eval_average_return": 4367.5751953125,
+        "eval_std_return": 82.36405944824219
+      },
+      {
+        "iteration": 2,
+        "eval_average_return": 4462.5859375,
+        "eval_std_return": 91.93724822998047
+      },
+      {
+        "iteration": 3,
+        "eval_average_return": 4529.10302734375,
+        "eval_std_return": 133.7838592529297
+      },
+      {
+        "iteration": 4,
+        "eval_average_return": 4511.625,
+        "eval_std_return": 123.67193603515625
+      },
+      {
+        "iteration": 5,
+        "eval_average_return": 4499.70263671875,
+        "eval_std_return": 123.47241973876953
+      },
+      {
+        "iteration": 6,
+        "eval_average_return": 4627.22900390625,
+        "eval_std_return": 50.67891311645508
+      },
+      {
+        "iteration": 7,
+        "eval_average_return": 4659.14794921875,
+        "eval_std_return": 59.261566162109375
+      },
+      {
+        "iteration": 8,
+        "eval_average_return": 4520.4697265625,
+        "eval_std_return": 109.1522445678711
+      },
+      {
+        "iteration": 9,
+        "eval_average_return": 4583.091796875,
+        "eval_std_return": 93.75507354736328
+      }
+    ],
+    "expert_return": 4713.6533203125
+  },
+  "bc": {
+    "eval_average_return": 1551.480712890625,
+    "eval_std_return": 993.0275268554688
+  }
+}
