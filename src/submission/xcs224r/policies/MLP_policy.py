@@ -158,7 +158,7 @@ class MLPPolicySL(BasePolicy, nn.Module, metaclass=abc.ABCMeta):
         # you need to backpropagate the gradient and step the optimizer.
 
         # *** START CODE HERE ***
-        criterion = torch.nn.NLLLoss()
+        criterion = torch.nn.MSELoss()
         observations = ptu.from_numpy(observations.astype(np.float32))
         actions = ptu.from_numpy(actions.astype(np.float32))
         output_actions = self.forward(observations).rsample()
