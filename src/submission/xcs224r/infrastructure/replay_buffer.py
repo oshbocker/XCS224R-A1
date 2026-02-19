@@ -129,7 +129,7 @@ class ReplayBuffer():
         ## Note that rews, next_obs, and terminals are not used for BC
 
         # *** START CODE HERE ***
-        num_transitions = len(self)
+        num_transitions = self.obs.shape[0]
         rnd_idx = np.random.permutation(num_transitions)[-batch_size:]
         return (
             self.obs[rnd_idx],

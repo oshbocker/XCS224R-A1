@@ -158,10 +158,10 @@ class MLPPolicySL(BasePolicy, nn.Module, metaclass=abc.ABCMeta):
         # you need to backpropagate the gradient and step the optimizer.
 
         # *** START CODE HERE ***
-        criterion = torch.nn.CrossEntropyLoss()
+        criterion = torch.nn.NLLLoss()
         observations = ptu.from_numpy(observations.astype(np.float32))
         actions = ptu.from_numpy(actions.astype(np.float32))
-        output_actions = self.mean_net.forward(observations).rsample()
+        output_actions = self.forward(observations).rsample()
         loss = criterion(output_actions, actions)
 
         self.optimizer.zero_grad()
